@@ -110,6 +110,23 @@ MissionBlock::is_mission_item_reached()
 	case NAV_CMD_SET_CAMERA_FOCUS:
 		return true;
 
+	case NAV_CMD_GROUP_START: {
+		uint64_t group_id = 0;
+		for (int i = 3; i >= 0; i--) {
+			group_id = (group_id << 16) | (static_cast<uint32_t>(_mission_item.params[i]) & 0xFFFF);
+		}
+		_navigator->set_group_start(group_id);
+		return true;
+	}
+	case NAV_CMD_GROUP_END: {
+		uint64_t group_id = 0;
+		for (int i = 3; i >= 0; i--) {
+			group_id = (group_id << 16) | (static_cast<uint32_t>(_mission_item.params[i]) & 0xFFFF);
+		}
+		_navigator->set_group_end(group_id);
+		return true;
+	}
+
 	case NAV_CMD_DO_VTOL_TRANSITION:
 
 		if (int(_mission_item.params[0]) == 3) {
