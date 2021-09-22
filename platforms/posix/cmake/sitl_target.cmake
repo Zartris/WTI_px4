@@ -102,6 +102,7 @@ set(debuggers
 
 set(models
 	none
+	matrice_100
 	boat
 	cloudship
 	if750a

@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+# @name 3DR Iris Quadrotor SITL (Vision)
+#
+# @type Quadrotor Wide
+#
+
+. ${R}etc/init.d/airframes/4060_dji_matrice_100
+
+#set MIXER quad_x
+#set PWM_OUT 1234
+
+
+#param set-default BAT1_N_CELLS 6
+
+#param set-default MC_ROLL_P 6.5
+#param set-default MC_ROLLRATE_P 0.05
+#param set-default MC_ROLLRATE_I 0.05
+#param set-default MC_ROLLRATE_D 0.001
+#param set-default MC_PITCH_P 6.5
+#param set-default MC_PITCHRATE_P 0.05
+#param set-default MC_PITCHRATE_I 0.05
+#param set-default MC_PITCHRATE_D 0.001
+#param set-default MC_YAWRATE_P 0.2
+#param set-default MC_YAWRATE_I 0
+#param set-default MC_YAWRATE_D 0
+
+#param set-default PWM_MAIN_MIN 1200
+
+
+param set-default SYS_AUTOSTART 4060
+param set-default SYS_RESTART_TYPE 0
+param set-default SYS_MC_EST_GROUP 2 # ekf2
+param set-default BAT1_N_CELLS 6
+
+param set-default CAL_GYRO0_ID 2293768
+param set-default CAL_ACC0_ID 1376264
+param set-default CAL_ACC1_ID 1310728
+param set-default CAL_MAG0_ID 196616
+param set-default CAL_GYRO0_XOFF 0.01
+param set-default CAL_ACC0_XOFF 0.01
+param set-default CAL_ACC0_YOFF -0.01
+param set-default CAL_ACC0_ZOFF 0.01
+param set-default CAL_ACC0_XSCALE 1.01
+param set-default CAL_ACC0_YSCALE 1.01
+param set-default CAL_ACC0_ZSCALE 1.01
+param set-default CAL_ACC1_XOFF 0.01
+param set-default CAL_MAG0_XOFF 0.01
+
+
+param set-default SENS_BOARD_ROT 0 # Default is 0
+param set-default SENS_BOARD_X_OFF 0.000001
+param set-default COM_RC_IN_MODE 1
+# param set-default NAV_DLL_ACT 2 # Look it up again
+
+param set-default COM_DISARM_LAND 0
+param set-default NAV_ACC_RAD 2.0
+param set-default COM_OF_LOSS_T 5
+param set-default COM_OBL_ACT 2 # Return mode
+param set-default COM_OBL_RC_ACT 0
+param set-default RTL_RETURN_ALT 30.0
+param set-default RTL_DESCEND_ALT 5.0
+param set-default RTL_LAND_DELAY 5
+param set-default MIS_TAKEOFF_ALT 2.5 # Default value
+
+param set-default MPC_HOLD_MAX_Z 2.0
+param set-default EKF2_GBIAS_INIT 0.01
+param set-default EKF2_ANGERR_INIT 0.01
+
+### GPS only mode ###
+param set-default LPE_FUSION 145
+param set-default ATT_EXT_HDG_M 0
+### ---End--- ###
+### MOCAP only mode ###
+# param set LPE_FUSION 0
+# param set ATT_EXT_HDG_M 2
+### ---End--- ###
+
+param set-default LPE_PN_V 0.7
+
+param set-default MPC_XY_P 1.3
+param set-default MPC_Z_P 1.30
+
+
+# AIRSIM SETTING
+param set-default NAV_RCL_ACT 0
+param set-default NAV_DLL_ACT 0 # NOT RECOMMENDED ON REAL DRONE!
+param set-default COM_OBL_ACT 1 
